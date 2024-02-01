@@ -17,8 +17,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const firebase = initializeApp(firebaseConfig);
 
-export const db = firestore.getFirestore(app)
+export const db = firestore.getFirestore(firebase)
+
+console.log("Conectado ao Firebase!")
+
 export {firestore}
 
