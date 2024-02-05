@@ -25,6 +25,23 @@ app.post('/usuario', async (req, res) => {
         res.status(500).send(e)
     }
 })
+
+app.get('/listarUsuarios', async (req, res) =>{
+
+    const usuarios = await firestore.getDocs(firestore.collection(db, 'usuarios'))
+
+    const usuariosLista = usuarios.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+    })) 
+    res.send(usuariosLista)
+    try {
+        
+    } catch (e) {
+        console.log("Erro  ao listar usuários: " + e )
+        
+    }
+   })
 app.listen(3000, function () {
     console.log("servidor rodando na porta http://localhost:3000")
 });
