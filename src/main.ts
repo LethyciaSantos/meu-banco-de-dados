@@ -56,7 +56,7 @@ app.put('/atualizarformulario/:id', async (req, res)=>{
     const nome = req.body.nome
 
     try {
-        await firestore.updateDoc(firestore.doc(db, 'usuarios', id),{
+        await firestore.updateDoc(firestore.doc(db, 'formulario', id),{
             nome: nome, 
         })
         res.send( 'Formulario atualizado com sucesso!')
